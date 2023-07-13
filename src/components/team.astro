@@ -1,7 +1,62 @@
 ---
 import ContentSection from "~/components/layout/content-section.astro";
+import { Icon } from "astro-icon";
+import { Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
+import luis from "~/assets/luis.jpeg";
+import eduard from "~/assets/eduard.png";
+
+const features: {
+  name: string;
+  description: string;
+  image: string;
+}[] = [
+  {
+    name: "Eduard von Briesen",
+    description:
+      "Seit seinem abgeschlossenen Bacheleor in Informatik an der TUM, studiert er Mensch Computer Interaktion an der Ludwigs Maximalians Universität München. Seine Leidenschaft gilt der Schaffung innovativer Lösungen, die den Menschen in den Mittelpunkt stellen.",
+    image: eduard,
+  },
+  {
+    name: "Luis Sütter",
+    description:
+      "Luis Sütter (* 1997) studiert seit 2018 Kino- und Fernsehfilm an der Hochschule für Fernsehen und Film München. Zuvor schloss er sein Studium in Filmwissenschaft und Audiovisuellem Publizieren an der Johannes Gutenberg-Universität Mainz mit dem Bachelor of Arts ab. Er glaubt fest an die Realität des Traumhaften im Bild.",
+    image: luis,
+  },
+  {
+    name: "Ronny",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi.",
+    image: "https://via.placeholder.com/300",
+  },
+  {
+    name: "Moritz",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi.",
+    image: "https://via.placeholder.com/300",
+  },
+];
 ---
 
 <ContentSection title="Team" id="team">
-  <div class="max-w-xl">Eduard, Luis, Ronny und Moritz</div>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2">
+    {
+      features.map(({ name, description, image }) => (
+        <li class="m-4 flex flex-col items-center gap-4 bg-offset p-6">
+          <div class="">
+            <Image
+              class="rounded-full grayscale"
+              src={image}
+              alt={name}
+              aspectRatio="1:1"
+              width={300}
+              height={300}
+            />
+          </div>
+          <p class="text-center font-extrabold text-xl">{name}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
 </ContentSection>
