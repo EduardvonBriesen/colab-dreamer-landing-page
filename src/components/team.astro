@@ -1,16 +1,15 @@
 ---
 import ContentSection from "~/components/layout/content-section.astro";
-import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
 import { Image } from "@astrojs/image/components";
 import luis from "~/assets/luis.jpeg";
 import eduard from "~/assets/eduard.png";
 import moritz from "~/assets/moritz.jpg";
+import ronny from "~/assets/ronny.png";
 
 const features: {
   name: string;
   description: string;
-  image: string;
+  image: ImageMetadata;
 }[] = [
   {
     name: "Eduard von Briesen",
@@ -25,10 +24,10 @@ const features: {
     image: luis,
   },
   {
-    name: "Ronny",
+    name: "Ronny Kohlhaus",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi. Sed vitae nisi eget nunc ultricies aliquam. Donec euismod, nisl eget aliquam ultrices, nunc nisl aliquet nunc, vitae aliquam nisl nunc quis nunc. Nulla facilisi.",
-    image: "https://via.placeholder.com/300",
+      "Ronny Kohlhaus studiert seit 2021 Informatik an der Ludwig-Maximilians-Universität München. Im Zuge seiner Masterarbeit befasst er sich aktuell mit dem Themengebiet Neural Radiance Fields im Kontext der Filmproduktion. Seine mehrjährige Erfahrung als Software-Engineer ermöglicht es ihm, die Bedürfnisse der Menschen besser zu verstehen und Visionen erfolgreich umzusetzen.",
+    image: ronny,
   },
   {
     name: "Moritz Schlögell",
