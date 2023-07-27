@@ -8,7 +8,9 @@ import About from "~/components/about.astro";
 import Team from "~/components/team.astro";
 
 const { generator, site } = Astro;
-const description = "Der kollektive Träumer.";
+const title = "Die kollektiv Träumende";
+const description =
+  "Eine begehbare Rauminstallation, in der die Konfrontation mit dem kollektiven Unterbewussten aller vorherigen Gäste möglich wird. Im Inneren einer Kuppel kann dazu einer abstrakten Figur der letzte eigene Traum zugeflüstert werden.";
 ---
 
 <!DOCTYPE html>
@@ -19,8 +21,23 @@ const description = "Der kollektive Träumer.";
     <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://i.ibb.co/wSCRNRB/preview.png"
+    />
+    <meta name="description" property="og:description" content={description} />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="360" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kollektivtraum" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <title>Die Kollektiv Träumende</title>
-    <meta name="description" content={description} />
 
     <!-- initialize theme -->
     <script is:inline>
