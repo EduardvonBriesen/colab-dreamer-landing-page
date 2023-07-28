@@ -9,13 +9,11 @@ const { title, id } = Astro.props;
 
 <section
   id={id}
-  class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
+  class="flex scroll-mt-24 flex-col items-center gap-2 space-y-2"
 >
-  <div class="flex flex-col items-center gap-4">
+  <div class="flex flex-col items-center gap-2">
     <slot name="eyebrow" />
-    <h2
-      class="text-center font-extrabold tracking-tight text-6xl"
-    >
+    <h2 class="text-center font-mono font-extrabold tracking-tight text-5xl">
       {title}
     </h2>
   </div>

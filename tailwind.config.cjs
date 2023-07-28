@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+        mono: ["Major Mono Display", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         primary: "var(--color-primary)",
