@@ -5,35 +5,108 @@ import luis from "~/assets/team/luis.jpeg";
 import eduard from "~/assets/team/eduard.png";
 import moritz from "~/assets/team/moritz.jpg";
 import ronny from "~/assets/team/ronny.png";
+import Icon from "astro-icon";
 
 const features: {
   name: string;
   description: string;
   image: ImageMetadata;
+  social?: {
+    site: string;
+    link: string;
+  }[];
 }[] = [
   {
     name: "Eduard von Briesen",
     description:
       "Seit seinem abgeschlossenen Bacheleor in Informatik an der TUM, studiert er Mensch Computer Interaktion an der Ludwigs Maximalians Universität München. Seine Leidenschaft gilt der Schaffung innovativer Lösungen, die den Menschen in den Mittelpunkt stellen.",
     image: eduard,
+    social: [
+      {
+        site: "linkedin",
+        link: "https://www.linkedin.com/in/eduard-von-briesen-5b750b1b5",
+      },
+      {
+        site: "instagram",
+        link: "https://www.instagram.com/eduardvonbriesen/",
+      },
+      {
+        site: "github",
+        link: "https://github.com/EduardvonBriesen",
+      },
+      {
+        site: "email",
+        link: "mailto:e.v.briesen@gmail.com",
+      },
+    ],
   },
   {
     name: "Luis Sütter",
     description:
       "Luis Sütter (* 1997) studiert seit 2018 Kino- und Fernsehfilm an der Hochschule für Fernsehen und Film München. Zuvor schloss er sein Studium in Filmwissenschaft und Audiovisuellem Publizieren an der Johannes Gutenberg-Universität Mainz mit dem Bachelor of Arts ab. Er glaubt fest an die Realität des Traumhaften im Bild.",
     image: luis,
+    social: [
+      {
+        site: "linkedin",
+        link: "https://www.linkedin.com/in/luis-s%C3%BCtter-08196a202/",
+      },
+      {
+        site: "instagram",
+        link: "https://instagram.com/luissuetter",
+      },
+      {
+        site: "email",
+        link: "mailto:luis.suetter@campus.hff-muc.de",
+      },
+    ],
   },
   {
     name: "Ronny Kohlhaus",
     description:
       "Ronny Kohlhaus studiert seit 2021 Informatik an der Ludwig-Maximilians-Universität München. Im Zuge seiner Masterarbeit befasst er sich aktuell mit dem Themengebiet Neural Radiance Fields im Kontext der Filmproduktion. Seine mehrjährige Erfahrung als Software-Engineer ermöglicht es ihm, die Bedürfnisse der Menschen besser zu verstehen und Visionen erfolgreich umzusetzen.",
     image: ronny,
+    social: [
+      {
+        site: "linkedin",
+        link: "https://www.linkedin.com/in/kohlhaus/",
+      },
+      {
+        site: "instagram",
+        link: "https://www.instagram.com/ronny.khs/",
+      },
+      {
+        site: "github",
+        link: "https://github.com/rkohlhaus",
+      },
+      {
+        site: "email",
+        link: "mailto:r.kohlhaus@campus.lmu.de",
+      },
+    ],
   },
   {
     name: "Moritz Schlögell",
     description:
       "Moritz Fortunat Schlögell studiert seit 2016 Kino- und Fernsehfilm an der Hochschule für Fernsehen und Film München. Neben seinen freiberuflichen Tätigkeiten als Autor und Regisseur organisiert Moritz Seminare zu Storytelling in Games und ist als Installationskünstler tätig. Zuletzt wurde Moritz im Jahr 2021 mit dem Young Ones ADC in Gold ausgezeichnet.",
     image: moritz,
+    social: [
+      {
+        site: "linkedin",
+        link: "https://www.linkedin.com/in/moritz-fortunat-schl%C3%B6gell-13798a283/",
+      },
+      {
+        site: "instagram",
+        link: "https://www.instagram.com/moritzschloegell/",
+      },
+      {
+        site: "language",
+        link: "http://moritzschloegell.de/",
+      },
+      {
+        site: "email",
+        link: "mailto:kontakt@moritzschloegell.de",
+      },
+    ],
   },
 ];
 ---
@@ -41,7 +114,7 @@ const features: {
 <ContentSection title="Team" id="team">
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2">
     {
-      features.map(({ name, description, image }) => (
+      features.map(({ name, description, image, social }) => (
         <li class="m-4 flex flex-col items-center gap-4 bg-offset p-6">
           <div class="">
             <Image
@@ -54,7 +127,23 @@ const features: {
             />
           </div>
           <p class="text-center font-extrabold text-xl">{name}</p>
-          <p class="text-center text-offset text-sm">{description}</p>
+          <p class="h-full text-center text-offset text-sm">{description}</p>
+          <div class="flex items-center gap-4">
+            {social?.map(({ site, link }) => (
+              <a
+                class=" h-10 w-10"
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  class="cursor-pointer transition-colors duration-100 ease-in-out hover:text-offset "
+                  pack="mdi"
+                  name={site}
+                />
+              </a>
+            ))}
+          </div>
         </li>
       ))
     }
