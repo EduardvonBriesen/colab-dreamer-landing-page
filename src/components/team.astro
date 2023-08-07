@@ -126,21 +126,17 @@ const features: {
               height={300}
             />
           </div>
-          <p class="text-center  text-xl">{name}</p>
+          <p class="text-center text-xl">{name}</p>
           <p class="h-full text-center text-offset text-sm ">{description}</p>
           <div class="flex items-center gap-4">
             {social?.map(({ site, link }) => (
               <a
-                class=" h-10 w-10"
+                class="h-10 w-10"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icon
-                  class="cursor-pointer transition-colors duration-100 ease-in-out hover:text-offset "
-                  pack="mdi"
-                  name={site}
-                />
+                <Icon class="cursor-pointer" pack="mdi" name={site} />
               </a>
             ))}
           </div>
