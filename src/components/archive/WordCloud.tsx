@@ -56,7 +56,7 @@ export default function WordCloud({ title, data }: WordCloudProps) {
     },
   };
 
-  let reducedData = reduceWords(data, excludeWords).slice(0, 100);
+  let reducedData = reduceWords(data, excludeWords);
 
   reducedData = reducedData.map((item: { word: string; value: number }) => {
     return { ...item, group: title };

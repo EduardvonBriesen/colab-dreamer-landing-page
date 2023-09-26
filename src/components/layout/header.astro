@@ -4,17 +4,21 @@ import ThemeSwitcher from "~/components/ui/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Projekt", url: "#about" },
-  { title: "Team", url: "#team" },
-  { title: "Galerie", url: "#gallery" },
+  { title: "Projekt", url: "/#about" },
+  { title: "Team", url: "/#team" },
+  { title: "Galerie", url: "/#gallery" },
+  { title: "Archvie", url: "/archive" },
 ];
+
+const { fixed } = Astro.props;
 ---
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
+  class={"absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white" +
+    (fixed ? " fixed-header" : "")}
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="#">
+  <a class="flex items-center gap-3 hover:!text-default" href="/">
     <h1 class="font-mono">Die Kollektiv Träumende</h1>
   </a>
   <div>
@@ -104,10 +108,14 @@ const navItems: Array<NavItem> = [
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
+  console.log("fixed", header.classList);
+
+  if (!header.classList.contains("fixed-header")) {
+    document.addEventListener("scroll", () => {
+      const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+      header.classList.toggle("fixed-header", d < 0);
+    });
+  }
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {

@@ -1,16 +1,11 @@
 ---
 import "@fontsource/inter/variable.css";
-import Header from "~/components/layout/header.astro";
-import Splash from "~/components/splash/splash.astro";
-import Gallery from "~/components/gallery/Gallery";
 import "~/styles/index.css";
-import About from "~/components/about.astro";
-import Team from "~/components/team.astro";
-import ContentSection from "~/components/layout/content-section.astro";
-import Logos from "~/components/logos.astro";
+import Header from "~/components/layout/header.astro";
+import Clouds from "~/components/archive/clouds.astro";
 
 const { generator, site } = Astro;
-const title = "Die kollektiv Träumende";
+const title = "Die kollektiv Träumende - Archive";
 const description =
   "Eine begehbare Rauminstallation, in der die Konfrontation mit dem kollektiven Unterbewussten aller vorherigen Gäste möglich wird. Im Inneren einer Kuppel kann dazu einer abstrakten Figur der letzte eigene Traum zugeflüstert werden.";
 ---
@@ -72,15 +67,9 @@ const description =
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
-    <Header />
-    <Splash />
+    <Header fixed />
     <div class="space-y-24 px-8 py-32">
-      <Logos />
-      <About />
-      <Team />
-      <ContentSection title="Galerie" id="gallery">
-        <Gallery client:only="react" />
-      </ContentSection>
+      <Clouds />
     </div>
   </body>
 </html>
