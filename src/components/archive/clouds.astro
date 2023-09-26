@@ -1,0 +1,25 @@
+---
+import ContentSection from "~/components/layout/content-section.astro";
+import WordCloud from "./WordCloud";
+
+import kunstAreal from "./data/dreams-kunstareal.json";
+
+const data = [
+  {
+    title: "Munich",
+    date: "16.07.2023",
+    data: kunstAreal,
+  },
+];
+---
+
+{
+  data.map((d) => (
+    <ContentSection id={d.title} title={d.title}>
+      <p slot="lead">
+        {d.date} - {d.data.length} dreams
+      </p>
+      <WordCloud client:only="react" data={d.data} title={d.title} />
+    </ContentSection>
+  ))
+}
