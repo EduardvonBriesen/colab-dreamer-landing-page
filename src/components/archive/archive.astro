@@ -1,0 +1,19 @@
+---
+import ContentSection from "~/components/layout/content-section.astro";
+import WordCloud from "./WordCloud";
+
+import testData from "./data/test-data.json";
+import kunstAreal from "./data/dreams-kunstareal.json";
+---
+
+<ContentSection title="Projekt" id="about">
+  <div class="max-w-xl text-justify">
+    Eine begehbare Rauminstallation, in der die Konfrontation mit dem
+    kollektiven Unterbewussten aller vorherigen Gäste möglich wird. Im Inneren
+    einer Kuppel kann dazu einer abstrakten Figur der letzte eigene Traum
+    zugeflüstert werden. Alle Inputs fügen sich kontinuierlich zu einem
+    Kollektivtraum zusammen, der auf der Innenseite der Kuppel als Projektion
+    sichtbar wird.
+  </div>
+  <WordCloud client:only="react" data={kunstAreal} title="Test" />
+</ContentSection>

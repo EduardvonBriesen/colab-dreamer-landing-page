@@ -1,14 +1,14 @@
 ---
 import "@fontsource/inter/variable.css";
-import Footer from "~/components/layout/footer.astro";
 import Header from "~/components/layout/header.astro";
 import Splash from "~/components/splash/splash.astro";
-import Gallery from "~/components/gallery/gallery";
+import Gallery from "~/components/gallery/Gallery";
 import "~/styles/index.css";
 import About from "~/components/about.astro";
 import Team from "~/components/team.astro";
 import ContentSection from "~/components/layout/content-section.astro";
 import Logos from "~/components/logos.astro";
+import Archive from "~/components/archive/archive.astro";
 
 const { generator, site } = Astro;
 const title = "Die kollektiv Träumende";
@@ -23,7 +23,10 @@ const description =
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
     <meta name="generator" content={generator} />
-    <meta name="google-site-verification" content="6r568haDoRsacJv1Vux5PEadpVrufyPivWlx5Nfy8cs" />
+    <meta
+      name="google-site-verification"
+      content="6r568haDoRsacJv1Vux5PEadpVrufyPivWlx5Nfy8cs"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -73,6 +76,7 @@ const description =
     <Header />
     <Splash />
     <div class="space-y-24 px-8 py-32">
+      <Archive />
       <Logos />
       <About />
       <Team />
@@ -83,3 +87,4 @@ const description =
     <!-- <Footer /> -->
   </body>
 </html>
+~/components/gallery/Gallery
