@@ -1,6 +1,6 @@
 ---
 import ContentSection from "~/components/layout/content-section.astro";
-import { Image } from "astro:assets";
+import { Image } from "@astrojs/image/components";
 import luis from "~/assets/team/luis.jpeg";
 import eduard from "~/assets/team/eduard.png";
 import moritz from "~/assets/team/moritz.jpg";
@@ -115,7 +115,7 @@ const features: {
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2">
     {
       features.map(({ name, description, image, social }) => (
-        <li class="bg-offset m-4 flex flex-col items-center gap-4 p-6">
+        <li class="m-4 flex flex-col items-center gap-4 bg-offset p-6">
           <div class="">
             <Image
               class="rounded-full grayscale"
@@ -127,7 +127,7 @@ const features: {
             />
           </div>
           <p class="text-center text-xl">{name}</p>
-          <p class="text-offset h-full text-center text-sm ">{description}</p>
+          <p class="h-full text-center text-offset text-sm ">{description}</p>
           <div class="flex items-center gap-4">
             {social?.map(({ site, link }) => (
               <a
