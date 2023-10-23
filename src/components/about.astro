@@ -11,4 +11,31 @@ import ContentSection from "~/components/layout/content-section.astro";
     Kollektivtraum zusammen, der auf der Innenseite der Kuppel als Projektion
     sichtbar wird.
   </div>
+  <div
+    class="max-h-0 max-w-xl overflow-hidden transition duration-500 ease-in-out"
+    id="expand-text"
+  >
+    Hier ist der zusätzliche Text, der angezeigt wird, wenn der Button geklickt
+    wird.
+  </div>
+  <button class="text-blue-500 hover:underline" id="expand-button">
+    Mehr anzeigen
+  </button>
 </ContentSection>
+
+<script>
+  import invariant from "tiny-invariant";
+
+  const expandButton = document.querySelector("#expand-button");
+  const expandedText = document.querySelector("#expand-text");
+  let showMore = false;
+
+  invariant(expandButton, "Could not find expand button");
+  invariant(expandedText, "Could not find expanded text");
+
+  expandButton.addEventListener("click", () => {
+    showMore = !showMore;
+    expandButton.textContent = showMore ? "Weniger anzeigen" : "Mehr anzeigen";
+    expandedText.classList.toggle("max-h-0");
+  });
+</script>
