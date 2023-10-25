@@ -5,24 +5,83 @@ import ContentSection from "~/components/layout/content-section.astro";
 
 <ContentSection title="Projekt" id="about">
   <div class="max-w-xl text-justify">
-    Eine begehbare Rauminstallation, in der die Konfrontation mit dem
-    kollektiven Unterbewussten aller vorherigen Gäste möglich wird. Im Inneren
-    einer Kuppel kann dazu einer abstrakten Figur der letzte eigene Traum
-    zugeflüstert werden. Alle Inputs fügen sich kontinuierlich zu einem
-    Kollektivtraum zusammen, der auf der Innenseite der Kuppel als Projektion
-    sichtbar wird.
+    <p>
+      „<em>The Collective Dreamer</em>“ ist eine begehbare Rauminstallation, in
+      der die Konfrontation mit dem kollektiven Unterbewussten aller
+      Partizipierenden möglich wird. Im Inneren einer Kuppel kann dazu einer
+      abstrakten Figur der letzte eigene Traum zugeflüstert werden. Alle Inputs
+      fügen sich zu einem kontinuierlich träumenden Unterbewusstsein zusammen,
+      dessen Träume auf der Innenseite der Kuppel als Projektion live sichtbar
+      werden.
+    </p>
+    <br />
+    <p class="gradient">
+      Mit der interaktiven Rauminstallation „<em>Collective Dreamer</em>“
+      möchten wir einen Begegnungsort zwischen den Partizipierenden, ihrem
+      Unterbewusstsein in Form ihrer Träume und spontanen Bildeinfälle und den
+      kollektiven unbewussten Mustern unserer Gegenwart - wie es durch
+      KI-Modelle zum Ausdruck kommt - schaffen.
+    </p>
   </div>
   <div id="expand-text">
-    <div class="max-w-xl overflow-hidden">
-      Hier ist der zusätzliche Text, der angezeigt wird, wenn der Button
-      geklickt wird. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Dolores atque est laudantium, neque numquam eligendi dolorum nobis
-      possimus? Quaerat laudantium nulla debitis nobis dolore omnis, ratione
-      iste illo ex sed.
+    <div class="max-w-xl overflow-hidden text-justify">
+      <br />
+      <p>
+        Laut Jung ist das kollektive Unbewusste jener „
+        <em>
+          Teil der Psyche, der von einem persönlichen Unbewussten dadurch
+          negativ unterschieden werden kann, daß er seine Existenz nicht
+          persönlicher Erfahrung verdankt und daher keine persönliche Erwerbung
+          ist
+        </em>“ und somit das, was wir alle miteinander teilen, ohne es selbst
+        durch eigene Lebenserfahrungen angeeignet zu haben.
+      </p>
+      <br />
+      <p>
+        In den KI-Modellen unserer Zeit hat sich etwas ähnliches
+        niedergeschrieben: aus den gesammelten Daten des Internets (und den
+        darin inzwischen integrierten hunderten Jahren Literatur, Kunst,
+        menschlichen Kommunikationen usw.) extrahierte
+        Wahrscheinlichkeitsverteilungen zeigen uns die Muster auf, die wir als
+        Menschheit kollektiv, bewusst sowie unbewusst in unseren schriftlichen
+        und bildlichen Äußerungen hinterlassen und geschaffen haben und denen
+        wir durch den Einfluss dieser Medien auf unser Leben auch folgen.
+        Vielfach sind aus diesen Äußerungen auch Muster erkennbar, die man
+        tatsächlich Jungs kollektivem Unbewussten zuschreiben könnte.
+      </p>
+      <br />
+      <p>
+        Und wie in einem Traum, dem Ort, wo dem Mensch das kollektive Unbewusste
+        am ehesten bildhaft begegnet, werden sie durch Bildgenerierung und deren
+        Eigenheiten wieder sichtbar.
+      </p>
+      <br />
+      <p>
+        Wie wir uns sehen? Als Individuen sehen wir uns nicht als Künstler, auch
+        wenn zwei von Film studieren Filmhochschule und damit eigentlich an
+        einer Kunsthochschule sind. Als Kollektiv machen wir aber Kunst. Dabei
+        interessieren uns vor allem interaktiv/kommunikative Ansätze mit Bezug
+        zum Storytelling. Auch mit unserer Installation „<em
+          >The Collective Dreamer</em
+        >“ möchten wir das Phänomen AI auf interaktive und kommunikative Weise
+        so intensiv erfahrbar wie möglich machen und greifen dabei auf typische
+        Kommunikationsrituale wie die Höhlen- sowie Lagerfeuersituation oder das
+        Erzählen der eigenen Träume zurück.
+      </p>
+      <br />
+      <p>
+        In Bezug auf das laufende Projekt sind wir vor allem daran interessiert,
+        unseren Dreamer mit verschiedenen Orten und Menschen in Kontakt zu
+        bringen und diese Momentaufnahmen wie in einer Time- bzw. Place-Capsule
+        zugänglich zu machen. Wie haben sich die Träume des Dreamers in Warschau
+        entwickelt, wie in München, wie werden sie an anderen Orten sein? Jede
+        Stadt, jeder Tag hat vermutlich ihren/seinen eigenen Fingerabdruck, den
+        wir erlebbar machen möchten.
+      </p>
     </div>
   </div>
   <button class="flex" id="expand-button">
-    <p>show more</p>
+    <p>mehr anzeigen</p>
     <Icon
       name="mdi:keyboard-arrow-down"
       class="h-8 w-8 transition-transform duration-500 ease-in-out"
@@ -38,18 +97,21 @@ import ContentSection from "~/components/layout/content-section.astro";
   const expandedText = document.querySelector("#expand-text");
   const arrow = document.querySelector("#arrow");
   const buttonSpan = document.querySelector("#expand-button p");
+  const gradient = document.querySelector(".gradient");
   let showMore = false;
 
   invariant(expandButton, "Could not find expand button");
   invariant(expandedText, "Could not find expanded text");
   invariant(arrow, "Could not find arrow");
   invariant(buttonSpan, "Could not find button span");
+  invariant(gradient, "Could not find gradient");
 
   expandButton.addEventListener("click", () => {
     showMore = !showMore;
-    buttonSpan.innerHTML = showMore ? "show less" : "show more";
+    buttonSpan.innerHTML = showMore ? "weniger anzeigen" : "mehr anzeigen";
     expandedText.classList.toggle("active");
     arrow.classList.toggle("rotate-180");
+    gradient.classList.toggle("gradient");
   });
 </script>
 
@@ -62,5 +124,15 @@ import ContentSection from "~/components/layout/content-section.astro";
 
   #expand-text.active {
     grid-template-rows: 1fr;
+  }
+
+  .gradient {
+    background: linear-gradient(
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 </style>
