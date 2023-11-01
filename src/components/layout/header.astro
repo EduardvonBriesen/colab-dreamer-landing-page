@@ -1,10 +1,9 @@
 ---
 import { Icon } from "astro-icon";
-import ThemeSwitcher from "~/components/ui/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Projekt", url: "/#about" },
+  { title: "Project", url: "/#about" },
   { title: "Team", url: "/#team" },
   { title: "Galerie", url: "/#gallery" },
   { title: "Archive", url: "/archive" },
@@ -19,7 +18,7 @@ const { fixed } = Astro.props;
     (fixed ? " fixed-header" : "")}
 >
   <a class="flex items-center gap-3 hover:!text-default" href="/">
-    <h1 class="font-mono">The Collective Dreamer</h1>
+    <h1 class="font-mono">Collective Dreamer</h1>
   </a>
   <div>
     <div class="flex items-center gap-6">

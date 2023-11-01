@@ -19,7 +19,7 @@ const features: {
   {
     name: "Eduard von Briesen",
     description:
-      "Seit seinem abgeschlossenen Bacheleor in Informatik an der TUM, studiert er Mensch Computer Interaktion an der Ludwigs Maximalians Universität München. Seine Leidenschaft gilt der Schaffung innovativer Lösungen, die den Menschen in den Mittelpunkt stellen.",
+      "Currently employed as a frontend software engineer, he completed his bachelor's degree in computer science at TUM and continued his studies in Human-Computer Interaction at Ludwigs Maximalians University in Munich, fueled by a passion for innovative solutions that prioritize people.",
     image: eduard,
     social: [
       {
@@ -47,7 +47,7 @@ const features: {
   {
     name: "Luis Sütter",
     description:
-      "Luis Sütter (* 1997) studiert seit 2018 Kino- und Fernsehfilm an der Hochschule für Fernsehen und Film München. Zuvor schloss er sein Studium in Filmwissenschaft und Audiovisuellem Publizieren an der Johannes Gutenberg-Universität Mainz mit dem Bachelor of Arts ab. Er glaubt fest an die Realität des Traumhaften im Bild.",
+      "Luis Sütter has been studying cinema and television directing at the University of Television and Film Munich since 2018. Previously, he graduated with a Bachelor of Arts in Film Studies and Audiovisual Publishing from Johannes Gutenberg University Mainz. He firmly believes in the reality of the dreamlike in images.",
     image: luis,
     social: [
       {
@@ -67,7 +67,7 @@ const features: {
   {
     name: "Ronny Kohlhaus",
     description:
-      "Ronny Kohlhaus studiert seit 2021 Informatik an der Ludwig-Maximilians-Universität München. Im Zuge seiner Masterarbeit befasst er sich aktuell mit dem Themengebiet Neural Radiance Fields im Kontext der Filmproduktion. Seine mehrjährige Erfahrung als Software-Engineer ermöglicht es ihm, die Bedürfnisse der Menschen besser zu verstehen und Visionen erfolgreich umzusetzen.",
+      "Ronny Kohlhaus has been studying computer science at Ludwig-Maximilians-Universität Munich since 2021. In the course of his master's thesis, he is currently working on the topic of Neural Radiance Fields in the context of film production. His several years of experience as a software engineer enable him to better understand the needs of people and to successfully implement visions.",
     image: ronny,
     social: [
       {
@@ -91,7 +91,7 @@ const features: {
   {
     name: "Moritz Schlögell",
     description:
-      "Moritz Fortunat Schlögell studiert seit 2016 Kino- und Fernsehfilm an der Hochschule für Fernsehen und Film München. Neben seinen freiberuflichen Tätigkeiten als Autor und Regisseur organisiert Moritz Seminare zu Storytelling in Games und ist als Installationskünstler tätig. Zuletzt wurde Moritz im Jahr 2021 mit dem Young Ones ADC in Gold ausgezeichnet.",
+      "Moritz Fortunat Schlögell has been studying Feature Film and Television Feature at the University of Television and Film Munich since 2016. In addition to his freelance work as a writer and director, Moritz organizes seminars on storytelling in games and works as an installation artist. Most recently, Moritz was awarded the Young Ones ADC in Gold in 2021.",
     image: moritz,
     social: [
       {
@@ -119,7 +119,7 @@ const features: {
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2">
     {
       features.map(({ name, description, image, social }) => (
-        <li class="m-4 flex flex-col items-center gap-4 bg-offset p-6">
+        <li class="bg-offset m-4 flex flex-col items-center gap-4 p-6">
           <div class="">
             <Image
               class="rounded-full grayscale"
@@ -131,7 +131,7 @@ const features: {
             />
           </div>
           <p class="text-center text-xl">{name}</p>
-          <p class="h-full text-center text-offset text-sm ">{description}</p>
+          <p class="text-offset h-full text-center text-sm ">{description}</p>
           <div class="flex items-center gap-4">
             {social?.map(({ site, link }) => (
               <a

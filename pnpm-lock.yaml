@@ -32,6 +32,9 @@ dependencies:
   d3-sankey:
     specifier: ^0.12.3
     version: 0.12.3
+  i18next:
+    specifier: ^23.6.0
+    version: 23.6.0
   micromodal:
     specifier: ^0.4.10
     version: 0.4.10
@@ -2409,6 +2412,12 @@ packages:
 
   /hyphenate-style-name@1.0.4:
     resolution: {integrity: sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==}
+    dev: false
+
+  /i18next@23.6.0:
+    resolution: {integrity: sha512-z0Cxr0MGkt+kli306WS4nNNM++9cgt2b2VCMprY92j+AIab/oclgPxdwtTZVLP1zn5t5uo8M6uLsZmYrcjr3HA==}
+    dependencies:
+      '@babel/runtime': 7.22.6
     dev: false
 
   /iconv-lite@0.6.3:
