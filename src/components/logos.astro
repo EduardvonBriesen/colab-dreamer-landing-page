@@ -3,17 +3,26 @@ import Icon from "astro-icon";
 ---
 
 <div class="flex justify-around">
-  <div class="flex w-full max-w-3xl flex-row justify-between">
+  <div
+    class="grid grid-cols-1 items-center gap-8 md:mx-auto md:max-w-3xl md:grid-cols-3"
+  >
+    <a
+      href="https://aokunsthalle.com/exhibition/collective-dreamer/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon name="a&o" class="w-full fill-current" />
+    </a>
+    <a href="https://kunstareal.de/" target="_blank" rel="noopener noreferrer">
+      <Icon name="kunstareal" class="w-full fill-current" />
+    </a>
     <a
       href="https://www.filmfest-muenchen.de/de/programm/rahmenprogramm/event/?id=7309&f=116"
       target="_blank"
       rel="noopener noreferrer"
+      class="flex justify-center"
     >
-      <Icon name="filmfest" class="w-full fill-current" />
-    </a>
-
-    <a href="https://kunstareal.de/" target="_blank" rel="noopener noreferrer">
-      <Icon name="kunstareal" class="w-full fill-current" />
+      <Icon name="filmfest" class="w-4/5 fill-current" />
     </a>
   </div>
 </div>
