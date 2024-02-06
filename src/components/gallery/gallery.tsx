@@ -19,7 +19,11 @@ export default function Gallery() {
 
   return (
     <div>
-      <ReactGallery photos={photos} onClick={openLightbox} />
+      <ReactGallery
+        photos={photos}
+        onClick={openLightbox}
+        targetRowHeight={500}
+      />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
