@@ -3,11 +3,14 @@ import "@fontsource/inter/variable.css";
 import "~/styles/index.css";
 import Header from "~/components/layout/header.astro";
 import Clouds from "~/components/archive/clouds.astro";
+import aiDome2 from "~/assets/gallery/AI-Dome2.jpg";
+import { getOgImage } from "~/lib/og-image";
 
 const { generator, site } = Astro;
 const title = "Collective Dreamer - Archive";
 const description =
   "Collective Dreamer is an interactive installation in which the confrontation with the collective subconscious of all participants becomes possible. Inside a dome, the last dream can be whispered to an abstract figure. All inputs merge into a continuously dreaming subconscious, whose dreams become visible live as a projection on the inside of the dome.";
+const ogImage = await getOgImage(aiDome2, site);
 ---
 
 <!DOCTYPE html>
@@ -24,14 +27,10 @@ const description =
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta
-      name="image"
-      property="og:image"
-      content="https://i.ibb.co/Dz1TcJR/AI-Dome2.jpg"
-    />
+    <meta name="image" property="og:image" content={ogImage.url} />
     <meta name="description" property="og:description" content={description} />
-    <meta property="og:image:width" content="640" />
-    <meta property="og:image:height" content="360" />
+    <meta property="og:image:width" content={String(ogImage.width)} />
+    <meta property="og:image:height" content={String(ogImage.height)} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@collectivedreamer" />
@@ -65,7 +64,7 @@ const description =
     </script>
   </head>
   <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+    class="h-full overflow-x-hidden bg-surface text-ink text-base selection:bg-secondary selection:text-white"
   >
     <Header fixed />
     <div class="space-y-24 px-8 py-32">

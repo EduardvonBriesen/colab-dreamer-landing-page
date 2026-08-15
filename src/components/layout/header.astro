@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
@@ -18,7 +18,7 @@ const { fixed } = Astro.props;
   class={"absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white" +
     (fixed ? " fixed-header" : "")}
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="/">
+  <a class="flex items-center gap-3 hover:!text-ink" href="/">
     <h1 class="font-mono">Collective Dreamer</h1>
   </a>
   <div>
@@ -42,11 +42,11 @@ const { fixed } = Astro.props;
         class="btn sm:hidden"
         aria-label="Navigation"
       >
-        <Icon pack="mdi" name="menu" class="h-8" />
+        <Icon name="mdi:menu" class="h-8" />
       </button>
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
+      <div class="fixed inset-0 bg-surface px-8 py-4 text-ink">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
@@ -55,7 +55,7 @@ const { fixed } = Astro.props;
               class="btn"
               aria-label="Close navigation"
             >
-              <Icon pack="mdi" name="close" class="h-8" />
+              <Icon name="mdi:close" class="h-8" />
             </button>
           </header>
           <nav>
@@ -133,9 +133,11 @@ const { fixed } = Astro.props;
 </noscript>
 
 <style>
+  @reference "~/styles/index.css";
+
   .fixed-header {
     @apply fixed bottom-auto top-0;
-    @apply border-default bg-default text-default;
+    @apply border-line bg-surface text-ink;
   }
   .modal.is-open {
     @apply block;

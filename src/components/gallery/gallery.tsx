@@ -1,9 +1,13 @@
 import { useState, useCallback } from "react";
 import ReactGallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "~/components/gallery/photos";
+import type { Photo } from "~/components/gallery/photos";
 
-export default function Gallery() {
+// photos.ts uses astro:assets's getImage(), which only works during
+// server render/build — it throws if bundled into this client:only
+// component. So photos are computed server-side in index.astro's
+// frontmatter and passed down here as plain, already-resolved data.
+export default function Gallery({ photos }: { photos: Photo[] }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -39,8 +43,7 @@ export default function Gallery() {
               currentIndex={currentImage}
               views={photos.map((x) => ({
                 ...x,
-                source: x?.src,
-                srcset: x?.srcSet,
+                source: x?.lightboxSrc,
                 caption: x?.alt,
               }))}
             />

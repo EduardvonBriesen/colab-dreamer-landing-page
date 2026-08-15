@@ -1,29 +1,29 @@
 [data-theme="light"] {
-  --color-primary: theme("colors.pink.500");
-  --color-secondary: theme("colors.indigo.500");
-  --color-text: theme("colors.gray.900");
-  --color-text-offset: theme("colors.gray.600");
+  --color-primary: var(--color-pink-500);
+  --color-secondary: var(--color-indigo-500);
+  --color-text: var(--color-gray-900);
+  --color-text-offset: var(--color-gray-600);
   --color-text-gradient: linear-gradient(
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 0, 0, 0.5) 50%,
     rgba(0, 0, 0, 0) 100%
   );
-  --color-background: theme("colors.gray.50");
-  --color-background-offset: theme("colors.gray.100");
-  --color-border: theme("colors.gray.900" / 10%);
+  --color-background: var(--color-gray-50);
+  --color-background-offset: var(--color-gray-100);
+  --color-border: color-mix(in oklab, var(--color-gray-900) 10%, transparent);
 }
 
 [data-theme="dark"] {
-  --color-primary: theme("colors.pink.400");
-  --color-secondary: theme("colors.indigo.400");
-  --color-text: theme("colors.gray.50");
-  --color-text-offset: theme("colors.gray.400");
+  --color-primary: var(--color-pink-400);
+  --color-secondary: var(--color-indigo-400);
+  --color-text: var(--color-gray-50);
+  --color-text-offset: var(--color-gray-400);
   --color-text-gradient: linear-gradient(
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 0.5) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  --color-background: theme("colors.gray.900");
-  --color-background-offset: theme("colors.gray.800");
-  --color-border: theme("colors.gray.50" / 10%);
+  --color-background: var(--color-gray-900);
+  --color-background-offset: var(--color-gray-800);
+  --color-border: color-mix(in oklab, var(--color-gray-50) 10%, transparent);
 }

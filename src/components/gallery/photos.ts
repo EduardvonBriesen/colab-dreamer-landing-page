@@ -1,164 +1,92 @@
-export const photos: {
-  src: string;
-  width: number;
-  height: number;
-  alt?: string;
-  key?: string;
-}[] = [
-  {
-    src: "https://i.ibb.co/Z6QyqM1/DSC0320-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/cXvkGFg/DSC0319-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/n3TmSV6/DSC0252-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/cF9GKGy/DSC0328-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/RyyQcJq/DSC0243-hires.jpg",
-    width: 4,
-    height: 3,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/5snBTSZ/DSC0260-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/Ln6nBX2/DSC0300-hires.jpg",
-    width: 4,
-    height: 3,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/HXkDGzd/DSC0265-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/kQJkCmZ/DSC0347-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/NYdzhQ7/DSC0349-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/vwgKMSX/DSC0354-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/tzHBB1j/DSC0359-hires.jpg",
-    width: 4,
-    height: 3,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/7v2bzKc/DSC0364-hires.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Bartosz Górka",
-  },
-  {
-    src: "https://i.ibb.co/GMD1f9D/Whats-App-Image-2023-07-25-at-10-39-08-2.jpg",
-    width: 3,
-    height: 4,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/0cS9znt/20230716-163139222-i-OS.jpg",
-    width: 6,
-    height: 4,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/wSG6HYR/20230716-163145791-i-OS.jpg",
-    width: 6,
-    height: 4,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/K6VVy8C/20230716-164149852-i-OS.jpg",
-    width: 4,
-    height: 3,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/MNyd6Tn/20230716-164239009-i-OS.jpg",
-    width: 4,
-    height: 3,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/Jq5zq1R/AI-Dome-4.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/ZmdvP20/AI-Dome1.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/Dz1TcJR/AI-Dome2.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/vkqgqGX/AI-Dome3.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/RbqZ8Kv/AI-Dome5.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/QH0n5qZ/AI-Dome6.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/BC6s28h/AI-Dome7.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
-  {
-    src: "https://i.ibb.co/Lh1V8ZX/AI-Dome8.jpg",
-    width: 3,
-    height: 2,
-    alt: "Photo by Manuel Lübers",
-  },
+// Gallery photos are hosted locally under src/assets/gallery/ (previously
+// hotlinked from ibb.co). This module runs at build/dev-server time (not
+// per-request) and uses astro:assets's programmatic getImage() API, because
+// the consumer (gallery.tsx) is mounted client:only="react" and only ever
+// receives plain data — never an Astro ImageMetadata object.
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+import dsc0320 from "~/assets/gallery/DSC0320-hires.jpg";
+import dsc0319 from "~/assets/gallery/DSC0319-hires.jpg";
+import dsc0252 from "~/assets/gallery/DSC0252-hires.jpg";
+import dsc0328 from "~/assets/gallery/DSC0328-hires.jpg";
+import dsc0243 from "~/assets/gallery/DSC0243-hires.jpg";
+import dsc0260 from "~/assets/gallery/DSC0260-hires.jpg";
+import dsc0300 from "~/assets/gallery/DSC0300-hires.jpg";
+import dsc0265 from "~/assets/gallery/DSC0265-hires.jpg";
+import dsc0347 from "~/assets/gallery/DSC0347-hires.jpg";
+import dsc0349 from "~/assets/gallery/DSC0349-hires.jpg";
+import dsc0354 from "~/assets/gallery/DSC0354-hires.jpg";
+import dsc0359 from "~/assets/gallery/DSC0359-hires.jpg";
+import dsc0364 from "~/assets/gallery/DSC0364-hires.jpg";
+import whatsappImage from "~/assets/gallery/WhatsApp-Image-2023-07-25-at-10-39-08-2.jpg";
+import ios163139 from "~/assets/gallery/20230716-163139222-iOS.jpg";
+import ios163145 from "~/assets/gallery/20230716-163145791-iOS.jpg";
+import ios164149 from "~/assets/gallery/20230716-164149852-iOS.jpg";
+import ios164239 from "~/assets/gallery/20230716-164239009-iOS.jpg";
+import aiDome4 from "~/assets/gallery/AI-Dome-4.jpg";
+import aiDome1 from "~/assets/gallery/AI-Dome1.jpg";
+import aiDome2 from "~/assets/gallery/AI-Dome2.jpg";
+import aiDome3 from "~/assets/gallery/AI-Dome3.jpg";
+import aiDome5 from "~/assets/gallery/AI-Dome5.jpg";
+import aiDome6 from "~/assets/gallery/AI-Dome6.jpg";
+import aiDome7 from "~/assets/gallery/AI-Dome7.jpg";
+import aiDome8 from "~/assets/gallery/AI-Dome8.jpg";
+
+const RAW: { image: ImageMetadata; alt: string }[] = [
+  { image: dsc0320, alt: "Photo by Bartosz Górka" },
+  { image: dsc0319, alt: "Photo by Bartosz Górka" },
+  { image: dsc0252, alt: "Photo by Bartosz Górka" },
+  { image: dsc0328, alt: "Photo by Bartosz Górka" },
+  { image: dsc0243, alt: "Photo by Bartosz Górka" },
+  { image: dsc0260, alt: "Photo by Bartosz Górka" },
+  { image: dsc0300, alt: "Photo by Bartosz Górka" },
+  { image: dsc0265, alt: "Photo by Bartosz Górka" },
+  { image: dsc0347, alt: "Photo by Bartosz Górka" },
+  { image: dsc0349, alt: "Photo by Bartosz Górka" },
+  { image: dsc0354, alt: "Photo by Bartosz Górka" },
+  { image: dsc0359, alt: "Photo by Bartosz Górka" },
+  { image: dsc0364, alt: "Photo by Bartosz Górka" },
+  { image: whatsappImage, alt: "Photo by Manuel Lübers" },
+  { image: ios163139, alt: "Photo by Manuel Lübers" },
+  { image: ios163145, alt: "Photo by Manuel Lübers" },
+  { image: ios164149, alt: "Photo by Manuel Lübers" },
+  { image: ios164239, alt: "Photo by Manuel Lübers" },
+  { image: aiDome4, alt: "Photo by Manuel Lübers" },
+  { image: aiDome1, alt: "Photo by Manuel Lübers" },
+  { image: aiDome2, alt: "Photo by Manuel Lübers" },
+  { image: aiDome3, alt: "Photo by Manuel Lübers" },
+  { image: aiDome5, alt: "Photo by Manuel Lübers" },
+  { image: aiDome6, alt: "Photo by Manuel Lübers" },
+  { image: aiDome7, alt: "Photo by Manuel Lübers" },
+  { image: aiDome8, alt: "Photo by Manuel Lübers" },
 ];
+
+const GRID_WIDTHS = [400, 800, 1200, 1600, 2400];
+
+export type Photo = Awaited<ReturnType<typeof buildPhoto>>;
+
+async function buildPhoto({ image, alt }: { image: ImageMetadata; alt: string }) {
+  const widths = [...new Set([...GRID_WIDTHS.filter((w) => w < image.width), image.width])];
+  const variants = await Promise.all(
+    widths.map((width) => getImage({ src: image, width, format: "webp" }))
+  );
+  const largest = variants[variants.length - 1];
+  const lightbox = await getImage({
+    src: image,
+    width: Math.min(2200, image.width),
+    format: "webp",
+  });
+
+  return {
+    src: largest.src,
+    srcSet: variants.map((v) => `${v.src} ${v.options.width}w`).join(", "),
+    sizes: "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+    width: image.width,
+    height: image.height,
+    alt,
+    lightboxSrc: lightbox.src,
+  };
+}
+
+export const photos = await Promise.all(RAW.map(buildPhoto));

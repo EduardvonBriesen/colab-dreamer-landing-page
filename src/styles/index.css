@@ -1,3 +1,7 @@
-@import "global.css";
-@import "theme.css";
+/* Remote @import rules must precede all other rules in the final stylesheet
+   (aside from @charset/@layer), so this has to lead even @import "tailwindcss" */
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import "tailwindcss";
+@import "./global.css";
+@import "./theme-tokens.css";
+@import "./theme.css";

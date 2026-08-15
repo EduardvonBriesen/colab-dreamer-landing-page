@@ -1,11 +1,11 @@
 ---
 import ContentSection from "~/components/layout/content-section.astro";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import luis from "~/assets/team/luis.jpeg";
 import eduard from "~/assets/team/eduard.png";
 import moritz from "~/assets/team/moritz.jpg";
 import ronny from "~/assets/team/ronny.png";
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const features: {
   name: string;
@@ -119,19 +119,18 @@ const features: {
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2">
     {
       features.map(({ name, description, image, social }) => (
-        <li class="bg-offset m-4 flex flex-col items-center gap-4 p-6">
+        <li class="bg-surface-offset m-4 flex flex-col items-center gap-4 p-6">
           <div class="">
             <Image
-              class="rounded-full grayscale"
+              class="rounded-full grayscale object-cover"
               src={image}
               alt={name}
-              aspectRatio="1:1"
               width={300}
               height={300}
             />
           </div>
           <p class="text-center font-mono text-xl lowercase">{name}</p>
-          <p class="text-offset h-full text-center text-sm ">{description}</p>
+          <p class="text-ink-offset h-full text-center text-sm ">{description}</p>
           <div class="flex items-center gap-4">
             {social?.map(({ site, link }) => (
               <a
@@ -140,7 +139,7 @@ const features: {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icon class="cursor-pointer" pack="mdi" name={site} />
+                <Icon class="cursor-pointer" name={`mdi:${site}`} />
               </a>
             ))}
           </div>
