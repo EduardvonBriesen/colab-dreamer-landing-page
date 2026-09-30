@@ -1,0 +1,45 @@
+---
+import type { WordCloudChartOptions } from "@carbon/charts";
+import "@carbon/charts/styles.css";
+
+type Props = {
+  title: string;
+  data: {
+    group: string;
+    word: string;
+    value: number;
+  }[];
+};
+
+const { title, data } = Astro.props;
+const options: WordCloudChartOptions = {
+  title,
+  height: "800px",
+  legend: {
+    enabled: false,
+  },
+  toolbar: {
+    enabled: false,
+  },
+  color: {
+    scale: {
+      [title]: "var(--color-text)",
+    },
+  },
+};
+---
+
+<div class="word-cloud" data-word-cloud data-data={JSON.stringify(data)} data-options={JSON.stringify(options)}></div>
+
+<script>
+  import { WordCloudChart } from "@carbon/charts";
+
+  document.querySelectorAll<HTMLDivElement>("[data-word-cloud]").forEach((holder) => {
+    if (holder.dataset.initialized) return;
+
+    const data = JSON.parse(holder.dataset.data ?? "[]");
+    const options = JSON.parse(holder.dataset.options ?? "{}");
+    new WordCloudChart(holder, { data, options });
+    holder.dataset.initialized = "true";
+  });
+</script>

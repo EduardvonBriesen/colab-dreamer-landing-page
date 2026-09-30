@@ -2,7 +2,7 @@
 import "@fontsource/inter/variable.css";
 import Header from "~/components/layout/header.astro";
 import Splash from "~/components/splash/splash.astro";
-import Gallery from "~/components/gallery/gallery";
+import Gallery from "~/components/gallery/gallery.astro";
 import "~/styles/index.css";
 import About from "~/components/about.astro";
 import Team from "~/components/team.astro";
@@ -84,7 +84,7 @@ const ogImage = await getOgImage(aiDome2, site);
         <p class="pb-4 font-mono lowercase text-sm">
           Photos by Bartosz Górka and Manuel Lübers
         </p>
-        <Gallery client:only="react" photos={photos} />
+        <Gallery photos={photos} />
       </ContentSection>
     </div>
   </body>

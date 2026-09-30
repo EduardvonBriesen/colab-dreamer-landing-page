@@ -1,8 +1,6 @@
 // Gallery photos are hosted locally under src/assets/gallery/ (previously
-// hotlinked from ibb.co). This module runs at build/dev-server time (not
-// per-request) and uses astro:assets's programmatic getImage() API, because
-// the consumer (gallery.tsx) is mounted client:only="react" and only ever
-// receives plain data — never an Astro ImageMetadata object.
+// hotlinked from ibb.co). This module runs at build/dev-server time and uses
+// astro:assets to produce responsive image variants for the static gallery.
 import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 

@@ -9,6 +9,7 @@
 ## Features
 
 - 💨 Tailwind CSS for styling
+- ⚡ React-free client runtime; interactive UI uses Astro components and focused browser libraries
 - 🎨 Themeable
   - CSS variables are defined in `src/styles/theme.css` and mapped to Tailwind classes (`tailwind.config.cjs`)
 - 🌙 Dark mode
