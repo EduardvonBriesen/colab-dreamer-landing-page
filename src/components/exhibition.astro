@@ -1,23 +1,36 @@
 ---
 import ContentSection from "~/components/layout/content-section.astro";
+import { Icon } from "astro-icon/components";
 ---
 
-<ContentSection title="Exhibition" id="exhibition">
+<ContentSection title="Exhibition" id="exhibition" >
   <div
     class="flex w-full max-w-xl flex-col justify-between gap-4 py-4 md:flex-row"
   >
     <p class="text-center md:text-left">
-      4.11. - 17.12.2023<br />
-      Thur, Fri & Sat<br />
-      16:30 - 20:00
+      <i>FUTURE, NOW!</i><br />
+      Oct 14, 2026 – Aug 1, 2027<br />
+      Tuesday to Sunday<br />
+      11:00 - 17:00
     </p>
     <a
-      href="https://maps.app.goo.gl/dfuMdVUkTwEPSLUdA"
+      href="https://maps.app.goo.gl/kzYJnNjWYmXAubnC6"
       class="text-center md:text-right"
     >
-      a&o Hostel Warszawa Wola<br />
-      Marcina Kasprzaka 18/20<br />
-      01-211 Warszawa
+      Deutsches Theatermuseum<br />
+      Galeriestr. 4a<br />
+      (Hofgartenarkaden)<br />
+      80539 München
     </a>
+
   </div>
+  <a
+    href="https://www.deutschestheatermuseum.de/de/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Deutsches Theatermuseum"
+    class="w-full max-w-sm flex justify-center"
+  >
+    <Icon name="dtm" class="size-4/5 fill-current" />
+  </a>
 </ContentSection>

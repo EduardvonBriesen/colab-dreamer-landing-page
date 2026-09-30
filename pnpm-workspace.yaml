@@ -1,0 +1,8 @@
+allowBuilds:
+  '@carbon/charts': true
+  '@carbon/charts-react': true
+  '@carbon/colors': true
+  '@carbon/icon-helpers': true
+  '@carbon/icons-react': true
+  '@carbon/utils-position': true
+  esbuild: true
